@@ -16,8 +16,7 @@ export NVM_DIR="$HOME/.nvm"
 eval "$(rbenv init -)"
 eval "$(starship init zsh)"
 
-alias exercises="/home/pedro/gitrepos/exercises"
-alias projects="/home/pedro/gitrepos/projects"
-alias dotfiles="/home/pedro/gitrepos/dotfiles/"
 alias shutdown="systemctl poweroff"
 alias reboot="systemctl reboot"
+
+eval "$(zoxide init zsh)"
