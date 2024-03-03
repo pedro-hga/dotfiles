@@ -11,11 +11,11 @@ plugins=(zsh-vi-mode git gitfast fast-syntax-highlighting common-aliases history
 
 source $ZSH/oh-my-zsh.sh
 
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# eval "$(rbenv init -)"
+eval "$(rbenv init -)"
 eval "$(starship init zsh)"
 
 alias shutdown="systemctl poweroff"
