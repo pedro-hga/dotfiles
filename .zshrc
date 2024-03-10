@@ -20,5 +20,6 @@ eval "$(starship init zsh)"
 
 alias shutdown="systemctl poweroff"
 alias reboot="systemctl reboot"
+alias tp="tilix --preferences"
 
 eval "$(zoxide init zsh)"
