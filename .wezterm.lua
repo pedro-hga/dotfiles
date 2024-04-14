@@ -8,8 +8,9 @@ local config = wezterm.config_builder()
 
 config.color_scheme = "nord"
 
-config.font = wezterm.font("IosevkaTermSlab Nerd Font", { weight = "Medium" })
-config.font_size = 12.8
+config.font = wezterm.font("Martian Mono")
+config.font_size = 10.5
+config.line_height = 1.35
 
 config.hide_tab_bar_if_only_one_tab = true
 config.window_decorations = "NONE"
