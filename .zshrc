@@ -15,7 +15,7 @@ export PATH="./bin:./node_modules/.bin:${PATH}"
 export PATH="$HOME/.rbenv/bin:$PATH"
 
 # plugins
-plugins=(zsh-vi-mode git gitfast fast-syntax-highlighting common-aliases history-substring-search zsh-autocomplete)
+plugins=(zsh-autocomplete zsh-syntax-highlighting git gitfast common-aliases history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -24,11 +24,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 eval "$(rbenv init -)"
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
 
 alias shutdown="systemctl poweroff"
 alias reboot="systemctl reboot"
-alias tp="tilix --preferences"
+# alias tp="tilix --preferences"
 
 eval "$(zoxide init zsh)"
 

@@ -6,7 +6,7 @@ local config = wezterm.config_builder()
 
 -- config
 
-config.color_scheme = "nord"
+config.color_scheme = "terafox"
 
 config.font = wezterm.font("Martian Mono")
 config.font_size = 10.5
