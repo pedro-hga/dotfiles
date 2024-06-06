@@ -197,8 +197,8 @@ after_bundle do
 
   # Git
   ########################################
-  git :init
-  git add: "."
-  git commit: "-m 'Initial commit with devise template from https://github.com/lewagon/rails-templates'"
+  # git :init
+  # git add: "."
+  # git commit: "-m 'Initial commit'"
 end
 
