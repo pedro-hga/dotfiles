@@ -17,7 +17,7 @@ export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 . "$HOME/.asdf/asdf.sh"
 
 # plugins
-plugins=(zsh-autocomplete zsh-syntax-highlighting git gitfast common-aliases history-substring-search)
+plugins=(zsh-autocomplete zsh-syntax-highlighting git gitfast common-aliases history-substring-search ssh-agent)
 
 source $ZSH/oh-my-zsh.sh
 
