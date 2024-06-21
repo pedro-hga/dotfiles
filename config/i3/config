@@ -9,6 +9,10 @@ focus_follows_mouse no
 exec --no-startup-id xinput set-prop "DLL0798:00 06CB:7E92 Touchpad" "libinput Natural Scrolling Enabled" 1
 exec --no-startup-id xinput set-prop "DLL0798:00 06CB:7E92 Touchpad" "libinput Tapping Enabled" 1
 exec_always --no-startup-id numlockx on
+
+# Start GNOME Keyring
+exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets
+
 # i3 config file (v4)
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
