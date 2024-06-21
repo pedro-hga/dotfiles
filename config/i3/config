@@ -4,10 +4,11 @@
 # Should you change your keyboard layout some time, delete
 # this file and re-run i3-config-wizard(1).
 #
+focus_follows_mouse no
 
 exec --no-startup-id xinput set-prop "DLL0798:00 06CB:7E92 Touchpad" "libinput Natural Scrolling Enabled" 1
 exec --no-startup-id xinput set-prop "DLL0798:00 06CB:7E92 Touchpad" "libinput Tapping Enabled" 1
-
+exec_always --no-startup-id numlockx on
 # i3 config file (v4)
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
@@ -36,7 +37,9 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
-
+exec_always --no-startup-id killall polybar
+exec_always --no-startup-id polybar
+exec_always feh --bg-scale /home/pedro/Pictures/wallpaper.jpg
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -47,6 +50,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+
+# for_window [all] title_window_icon on
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
 tiling_drag modifier titlebar
@@ -193,18 +198,18 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-  status_command i3status
-    colors {
-      background $bg1
-        statusline $fg1
-        separator $yellow
-        focused_workspace $blue $blue $bg2
-        active_workspace $bg1 $bg2 $bg2
+# bar {
+ # status_command i3status
+  #  colors {
+   #   background $bg1
+    #    statusline $fg1
+     #   separator $yellow
+      #  focused_workspace $blue $blue $bg2
+       # active_workspace $bg1 $bg2 $bg2
         # inactive_workspace $bg1 $bg2 $bg2
-        urgent_workspace $red $bg2 $bg2
-    }
-}
+        #urgent_workspace $red $bg2 $bg2
+   # }
+#}
 
 
 # Border width (in pixels)
@@ -251,7 +256,7 @@ set $cyan     #5fd7d7
 set $green    #5faf87
 
 # Border colors
-client.focused          $yellow $yellow $bg1 $yellow $yellow
+client.focused          $yellow $yellow $bg1 $bg1 $bg1
 client.focused_inactive $bg1 $bg2 $fg2 $bg3 $bg2
 client.unfocused        $bg0 $bg1 $fg3 $bg2 $bg1
 client.urgent           $bg1 $red $fg1 $red $bg1
@@ -261,4 +266,7 @@ gaps inner 6
 
 bindsym $mod+Shift+x exec i3lock -p default -c ebdbb2
 
-font pango:Martian Mono Condensed 11
+# Bind $mod + Shift + s to the screenshot script
+bindsym $mod+Shift+s exec ~/home/pedro/gitrepos/dotfiles/config/i3/scripts/screenshot.sh
+
+font pango:Iosevka Nerd Font 12
