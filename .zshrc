@@ -20,6 +20,8 @@ export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 if [ -n "$GNOME_KEYRING_CONTROL" ]; then
     export SSH_AUTH_SOCK=$(find /run/user/$UID/keyring/ -name "ssh")
 fi
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
 
 # plugins
 plugins=(zsh-autocomplete zsh-syntax-highlighting git gitfast common-aliases history-substring-search)
