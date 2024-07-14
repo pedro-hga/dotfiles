@@ -12,8 +12,9 @@ exec --no-startup-id xinput set-prop "DLL0798:00 06CB:7E92 Touchpad" "libinput N
 exec --no-startup-id xinput set-prop "DLL0798:00 06CB:7E92 Touchpad" "libinput Tapping Enabled" 1
 exec_always --no-startup-id numlockx on
 
-# Start GNOME Keyring
-exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets
+exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets,pkcs11,ssh,gpg
+# exec --no-startup-id eval "$(ssh-agent -s)"
+# exec --no-startup-id ssh-add ~/.ssh/id_ed25519
 
 # i3 config file (v4)
 #

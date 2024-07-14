@@ -16,12 +16,7 @@ export PATH="./bin:./node_modules/.bin:${PATH}"
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"
 . "$HOME/.asdf/asdf.sh"
 
-# Source GNOME Keyring environment variables
-# if [ -n "$GNOME_KEYRING_CONTROL" ]; then
-#     export SSH_AUTH_SOCK=$(find /run/user/$UID/keyring/ -name "ssh")
-# fi
-# eval "$(ssh-agent -s)"
-# ssh-add ~/.ssh/id_ed25519
+export SSH_AUTH_SOCK=/run/user/$UID/keyring/ssh
 
 # plugins
 plugins=(zsh-autocomplete zsh-syntax-highlighting git gitfast common-aliases history-substring-search)
