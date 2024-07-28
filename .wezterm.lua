@@ -7,11 +7,16 @@ local config = wezterm.config_builder()
 -- config
 
 -- config.color_scheme = "Solarized Dark (Gogh)"
-config.color_scheme = "terafox"
+-- config.color_scheme = "terafox"
+config.color_scheme = "GruvboxDark"
+config.colors = {
+	background = "#22262F",
+}
 
 -- config.font = wezterm.font("Iosevka Nerd Font", { weight = "Medium" })
-config.font = wezterm.font("MartianMono NFM", {weight="Regular", stretch="Condensed"})
-config.font_size = 13
+-- config.font = wezterm.font("MartianMono NFM", { weight = "Regular", stretch = "Condensed" })
+config.font = wezterm.font("GeistMono Nerd Font", { weight = "Regular" })
+config.font_size = 14
 config.line_height = 1.25
 
 config.hide_tab_bar_if_only_one_tab = true
