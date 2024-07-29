@@ -253,11 +253,11 @@ bar {
 # set $green    #b8bb26
 
 # Terafox colors
-# set $bg0      #000000
-# set $bg1      #1e1e1e
-# set $bg2      #333333
-# set $bg3      #4d4d4d
-# set $bg4      #666666
+set $bg0      #000000
+set $bg1      #1e1e1e
+set $bg2      #333333
+set $bg3      #4d4d4d
+set $bg4      #666666
 # set $fg0      #ffffff
 # set $fg1      #e0e0e0
 # set $fg2      #b0b0b0
@@ -272,11 +272,11 @@ bar {
 # set $cyan     #5fd7d7
 # set $green    #5faf87
 
-set $bg0      #2e3440
-set $bg1      #3b4252
-set $bg2      #434c5e
-set $bg3      #4c566a
-set $bg4      #d8dee9
+# set $bg0      #2e3440
+# set $bg1      #3b4252
+# set $bg2      #434c5e
+# set $bg3      #4c566a
+# set $bg4      #d8dee9
 set $fg0      #eceff4
 set $fg1      #e5e9f0
 set $fg2      #d8dee9
@@ -292,7 +292,7 @@ set $cyan     #88c0d0
 set $green    #a3be8c
 
 # Border colors
-client.focused          $cyan $cyan $bg1 $bg1 $bg1
+client.focused          $yellow $yellow $bg1 $bg1 $bg1
 client.focused_inactive $bg1 $bg2 $fg2 $bg3 $bg2
 client.unfocused        $bg0 $bg1 $fg3 $bg2 $bg1
 client.urgent           $bg1 $red $fg1 $red $bg1
