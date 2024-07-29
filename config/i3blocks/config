@@ -1,0 +1,39 @@
+# i3blocks configuration
+
+# Define the custom separator in global properties for boilerplate
+full_text=|
+align=center
+color=#afafaf
+separator=false
+separator_block_width=24
+
+
+
+
+
+[memory]
+label=mem.
+command=free -h | awk '/^Mem:/ { print $3"/"$2 }' | sed s/i//g
+interval=10
+
+# Fetch the public IP address only on startup
+#[public-ip]
+#command=wget -qO - icanhazip.com
+#interval=once
+[separator]
+
+[ip]
+label=ip
+command=hostname -i | awk '{ print $1 }'
+interval=once
+
+[wifi]
+label=WIFI:
+command=iwgetid -r
+interval=30
+
+[time]
+command=date '+%Y-%m-%d %H:%M:%S'
+interval=1
+
+[separator]
