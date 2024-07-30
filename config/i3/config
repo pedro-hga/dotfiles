@@ -11,7 +11,7 @@ exec --no-startup-id compton
 exec --no-startup-id xinput set-prop "DLL0798:00 06CB:7E92 Touchpad" "libinput Natural Scrolling Enabled" 1
 exec --no-startup-id xinput set-prop "DLL0798:00 06CB:7E92 Touchpad" "libinput Tapping Enabled" 1
 exec_always --no-startup-id numlockx on
-
+exec --no-startup-id dunst
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets,pkcs11,ssh,gpg
 # exec --no-startup-id eval "$(ssh-agent -s)"
 # exec --no-startup-id ssh-add ~/.ssh/id_ed25519
@@ -238,19 +238,19 @@ bar {
 # set $bg2      #504945
 # set $bg3      #665c54
 # set $bg4      #7c6f64
-# set $fg0      #fbf1c7
-# set $fg1      #ebdbb2
-# set $fg2      #d5c4a1
-# set $fg3      #bdae93
-# set $fg4      #a89984
-# set $yellow   #c89725
-# set $orange   #fe8019
-# set $red      #fb4934
-# set $magenta  #d3869b
-# set $violet   #b16286
-# set $blue     #83a598
-# set $cyan     #8ec07c
-# set $green    #b8bb26
+set $fg0      #fbf1c7
+set $fg1      #ebdbb2
+set $fg2      #d5c4a1
+set $fg3      #bdae93
+set $fg4      #a89984
+set $yellow   #c89725
+set $orange   #fe8019
+set $red      #fb4934
+set $magenta  #d3869b
+set $violet   #b16286
+set $blue     #83a598
+set $cyan     #8ec07c
+set $green    #b8bb26
 
 # Terafox colors
 set $bg0      #000000
@@ -277,22 +277,22 @@ set $bg4      #666666
 # set $bg2      #434c5e
 # set $bg3      #4c566a
 # set $bg4      #d8dee9
-set $fg0      #eceff4
-set $fg1      #e5e9f0
-set $fg2      #d8dee9
-set $fg3      #bfc9ca
-set $fg4      #a3b1c6
-set $yellow   #ebcb8b
-set $orange   #d08770
-set $red      #bf616a
-set $magenta  #b48ead
-set $violet   #5e81ac
-set $blue     #81a1c1
-set $cyan     #88c0d0
-set $green    #a3be8c
+# set $fg0      #eceff4
+# set $fg1      #e5e9f0
+# set $fg2      #d8dee9
+# set $fg3      #bfc9ca
+# set $fg4      #a3b1c6
+# set $yellow   #ebcb8b
+# set $orange   #d08770
+# set $red      #bf616a
+# set $magenta  #b48ead
+# set $violet   #5e81ac
+# set $blue     #81a1c1
+# set $cyan     #88c0d0
+# set $green    #a3be8c
 
 # Border colors
-client.focused          $yellow $yellow $bg1 $bg1 $bg1
+client.focused          $blue $blue $bg1 $bg1 $bg1
 client.focused_inactive $bg1 $bg2 $fg2 $bg3 $bg2
 client.unfocused        $bg0 $bg1 $fg3 $bg2 $bg1
 client.urgent           $bg1 $red $fg1 $red $bg1
