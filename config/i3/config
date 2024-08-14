@@ -16,6 +16,12 @@ exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets,
 # exec --no-startup-id eval "$(ssh-agent -s)"
 # exec --no-startup-id ssh-add ~/.ssh/id_ed25519
 
+exec --no-startup-id xrandr --output DP-0 --primary --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI-0 --mode 3840x2160 --pos 3840x192 --rotate left
+workspace 1 output DP-0
+workspace 2 output DP-0
+workspace 3 output DP-0
+workspace 4 output HDMI-0
+workspace 5 output HDMI-0
 # i3 config file (v4)
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
@@ -219,13 +225,13 @@ bar {
         focused_workspace $yellow $yellow $bg2
         active_workspace $bg1 $bg2 $bg2
         inactive_workspace $bg1 $bg2 $fg1
-        urgent_workspace $red $bg2 $bg2
+        urgent_workspace $red $red $bg2
     }
 }
 
 
 # Border width (in pixels)
-# new_window pixel 0
+new_window pixel 4
 
 # Gruvbox colors
 # set $bg0      #282828
@@ -269,13 +275,13 @@ set $bg4      #0f1c1e
 # set $green    #5faf87
 
 # Border colors
-client.focused          $bg0 $yellow $bg1 $bg1 $bg1
+client.focused          $bg0 $yellow $bg1 $yellow $yellow
 client.focused_inactive $bg1 $bg2 $fg2 $bg3 $bg2
 client.unfocused        $bg0 $gray $bg1 $fg3 $bg1
 client.urgent           $bg1 $red $fg1 $red $bg1
 
 # Set inner gaps (gaps between windows)
-# gaps inner 6
+gaps inner 4
 
 bindsym $mod+Shift+x exec i3lock -p default -c ebdbb2
 bindsym $mod+e exec nemo
