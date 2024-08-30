@@ -20,7 +20,6 @@ export SSH_AUTH_SOCK=/run/user/$UID/keyring/ssh
 
 # plugins
 plugins=(zsh-autocomplete zsh-syntax-highlighting git gitfast common-aliases history-substring-search)
-
 source $ZSH/oh-my-zsh.sh
 
 export NVM_DIR="$HOME/.nvm"
