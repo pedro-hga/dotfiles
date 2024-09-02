@@ -12,14 +12,17 @@ font pango:SF Mono 12
 exec_always --no-startup-id autotiling
 exec_always --no-startup-id numlockx on
 exec --no-startup-id compton
-exec --no-startup-id xinput set-prop "DLL0798:00 06CB:7E92 Touchpad" "libinput Natural Scrolling Enabled" 1
-exec --no-startup-id xinput set-prop "DLL0798:00 06CB:7E92 Touchpad" "libinput Tapping Enabled" 1
+exec_always --no-startup-id xinput set-prop "DLL0798:00 06CB:7E92 Touchpad" "libinput Natural Scrolling Enabled" 1
+exec_always --no-startup-id xinput set-prop "DLL0798:00 06CB:7E92 Touchpad" "libinput Tapping Enabled" 1
 exec --no-startup-id dunst
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets,pkcs11,ssh,gpg
 exec --no-startup-id xrandr --output DP-0 --primary --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI-0 --mode 3840x2160 --pos 3840x192 --rotate left
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id nm-applet
 exec_always feh --bg-scale /home/pedro/Pictures/wallpaper.jpg
+
+# Toggle Touchpad On/Off
+bindsym $mod+Shift+t exec --no-startup-id zsh -c 'xinput list-props "DLL0798:00 06CB:7E92 Touchpad" | grep -q "Tapping Enabled.*1" && xinput set-prop "DLL0798:00 06CB:7E92 Touchpad" "libinput Tapping Enabled" 0 || xinput set-prop "DLL0798:00 06CB:7E92 Touchpad" "libinput Tapping Enabled" 1'
 
 # Workspace assignment
 workspace 1 output eDP-1
