@@ -1,41 +1,35 @@
-# i3blocks configuration
-
-# Define the custom separator in global properties for boilerplate
 full_text=|
 align=center
 color=#afafaf
 separator=false
 separator_block_width=24
 
-
-
-
-
 [memory]
-label=mem.
+label=
 command=free -h | awk '/^Mem:/ { print $3"/"$2 }' | sed s/i//g
 interval=10
 
-# Fetch the public IP address only on startup
-#[public-ip]
-#command=wget -qO - icanhazip.com
-#interval=once
 [separator]
 
-[ip]
-label=ip
-command=hostname -i | awk '{ print $1 }'
-interval=once
+[cpu]
+label=
+command=top -bn1 | grep "Cpu(s)" | awk '{print $2 + $4"%"}'
+interval=10
+
+[separator]
 
 [wifi]
-label=WIFI:
+label= 
 command=iwgetid -r
 interval=30
 
-[time]
-color=#b8bb26
-command=date '+%d-%m-%Y'
-interval=1
+[separator]
+
+[battery]
+command=/home/pedro/gitrepos/dotfiles/config/i3blocks/battery.sh
+interval=10
+
+[separator]
 
 [time]
 color=#c89725
@@ -43,3 +37,12 @@ command=date '+%H:%M:%S'
 interval=1
 
 [separator]
+
+[date]
+color=#b8bb26
+command=date '+%a, %d-%m-%Y'
+interval=60
+
+[separator]
+
+

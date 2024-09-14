@@ -4,8 +4,8 @@
 focus_follows_mouse no
 set $mod Mod4
 floating_modifier $mod
-new_window pixel 2
-# gaps inner 2
+new_window pixel 4
+gaps inner 6
 font pango:SF Mono 12
 
 # Autostart applications and services
@@ -13,7 +13,8 @@ exec_always --no-startup-id autotiling
 exec_always --no-startup-id numlockx on
 exec --no-startup-id compton
 exec_always --no-startup-id xinput set-prop "DLL0798:00 06CB:7E92 Touchpad" "libinput Natural Scrolling Enabled" 1
-exec_always --no-startup-id xinput set-prop "DLL0798:00 06CB:7E92 Touchpad" "libinput Tapping Enabled" 1
+exec_always --no-startup-id xinput set-prop "DLL0798:00 06CB:7E92 Touchpad" "libinput Natural Scrolling Enabled" 1
+exec_always --no-startup-id xinput set-prop "DLL0798:00 06CB:7E92 Touchpad" "libinput Accel Speed" 0.30
 exec --no-startup-id dunst
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets,pkcs11,ssh,gpg
 exec --no-startup-id xrandr --output DP-0 --primary --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI-0 --mode 3840x2160 --pos 3840x192 --rotate left
