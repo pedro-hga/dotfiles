@@ -15,7 +15,7 @@ config.colors = {
 
 -- config.font = wezterm.font("Iosevka Nerd Font", { weight = "Medium" })
 -- config.font = wezterm.font("MartianMono NFM", { weight = "Regular", stretch = "Condensed" })
-config.font = wezterm.font("GeistMono Nerd Font", { weight = "Medium" })
+config.font = wezterm.font("Iosevka Nerd Font", { weight = "Medium" })
 config.font_size = 14
 config.line_height = 1.25
 
