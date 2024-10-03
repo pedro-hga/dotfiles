@@ -18,10 +18,16 @@ interval=10
 
 [separator]
 
-[keyboard]
-label= 
-command=setxkbmap -query | grep layout | awk '{print $2}'
-interval=1
+[wifi]
+label= 
+command=iwgetid -r
+interval=30
+
+[separator]
+
+[battery]
+command=/home/pedro/gitrepos/dotfiles/config/i3blocks/battery.sh
+interval=10
 
 [separator]
 
@@ -38,3 +44,5 @@ command=date '+%a, %d-%m-%Y'
 interval=60
 
 [separator]
+
+
