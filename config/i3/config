@@ -5,7 +5,7 @@ focus_follows_mouse no
 mouse_warping none
 set $mod Mod4
 floating_modifier $mod
-new_window pixel 2
+new_window pixel 4
 font pango:SF Mono 12
 
 # Autostart applications and services
@@ -140,6 +140,7 @@ bindsym --release $mod+Shift+s exec --no-startup-id import ~/Pictures/Screenshot
 bar {
     status_command i3blocks
     position top
+    tray_output DP-0
     colors {
         background $bg0
         statusline $fg0
@@ -170,11 +171,11 @@ set $violet   #b16286
 set $blue     #83a598
 set $cyan     #8ec07c
 set $green    #b8bb26
-set $gray     #a8a8a8
+set $gray     #79AFB9
 
 
 # Border colors
-client.focused          $bg0 $orange $bg1 $orange $orange
+client.focused          $bg0 $yellow $bg1 $yellow $yellow
 client.focused_inactive $bg1 $bg2 $fg2 $bg3 $bg2
 client.unfocused        $bg0 $gray $bg1 $fg3 $bg1
 client.urgent           $bg1 $red $fg1 $red $bg1

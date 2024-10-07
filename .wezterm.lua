@@ -6,11 +6,11 @@ local config = wezterm.config_builder()
 
 -- config
 
--- config.color_scheme = "Solarized Dark (Gogh)"
 -- config.color_scheme = "terafox"
 config.color_scheme = "GruvboxDark"
 config.colors = {
-	background = "#152528",
+	background = "#15291E",
+	-- background = "#002B36",
 }
 
 -- config.font = wezterm.font("Iosevka Nerd Font", { weight = "Medium" })

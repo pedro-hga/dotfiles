@@ -1,6 +1,6 @@
 full_text=|
 align=center
-color=#afafaf
+color=#79AFB9
 separator=false
 separator_block_width=24
 
@@ -26,14 +26,14 @@ interval=1
 [separator]
 
 [time]
-color=#c89725
+color=#C38983
 command=date '+%H:%M:%S'
 interval=1
 
 [separator]
 
 [date]
-color=#b8bb26
+color=#C38983 
 command=date '+%a, %d-%m-%Y'
 interval=60
 
