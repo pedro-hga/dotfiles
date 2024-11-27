@@ -5,7 +5,7 @@ focus_follows_mouse no
 mouse_warping none
 set $mod Mod4
 floating_modifier $mod
-new_window pixel 4
+new_window pixel 1
 font pango:SF Mono 12
 
 # Autostart applications and services
@@ -15,6 +15,7 @@ exec_always --no-startup-id compton
 exec_always --no-startup-id xinput set-prop "DLL0798:00 06CB:7E92 Touchpad" "libinput Natural Scrolling Enabled" 1
 exec_always --no-startup-id xinput set-prop "DLL0798:00 06CB:7E92 Touchpad" "libinput Natural Scrolling Enabled" 1
 exec_always --no-startup-id xinput set-prop "DLL0798:00 06CB:7E92 Touchpad" "libinput Accel Speed" 0.30
+exec --no-startup-id diodon
 exec --no-startup-id dunst
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets,pkcs11,ssh,gpg
 exec --no-startup-id xrandr --output DP-0 --primary --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI-0 --mode 3840x2160 --pos 3840x192 --rotate left
@@ -134,7 +135,9 @@ bindsym $mod+r mode "resize"
 # Mouse controls
 bindsym $mod+Shift+button4 workspace next
 bindsym $mod+Shift+button5 workspace prev
-bindsym --release $mod+Shift+s exec --no-startup-id import ~/Pictures/Screenshots/screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png && xclip -selection clipboard -t image/png -i ~/Pictures/Screenshots/screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png
+# bindsym --release $mod+Shift+s exec --no-startup-id import ~/Pictures/Screenshots/screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png
+
+bindsym --release $mod+Shift+s exec --no-startup-id import png:- | xclip -selection clipboard -t image/png
 
 # Status bar setup
 bar {
@@ -175,7 +178,7 @@ set $gray     #79AFB9
 
 
 # Border colors
-client.focused          $bg0 $yellow $bg1 $yellow $yellow
+client.focused          $bg0 $fg0 $bg1 $fg0 $fg0
 client.focused_inactive $bg1 $bg2 $fg2 $bg3 $bg2
 client.unfocused        $bg0 $gray $bg1 $fg3 $bg1
 client.urgent           $bg1 $red $fg1 $red $bg1

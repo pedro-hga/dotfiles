@@ -18,6 +18,12 @@ interval=10
 
 [separator]
 
+[volume]
+label= 
+command=amixer get Master | awk -F'[][]' '/Left:/ { if ($4 == "off") { print "Mute" } else { print $2 } }'
+interval=1
+
+[separator]
 [keyboard]
 label= 
 command=setxkbmap -query | grep layout | awk '{print $2}'
