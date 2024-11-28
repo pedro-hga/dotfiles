@@ -1,29 +1,25 @@
-/*
- * author: Chris van Dal <https://github.com/cvandal>
-*/
-
 * {
   border: none;
-  color: #83a598;
-  background-color: #282828;
+  color: #D5FF80;
+  background-color: #242936;
 }
 
 #frame {
-  padding: 8px;
+  padding: 24px;
   border-radius: 8px;
-  background-color: #282828;
-  border: 3px solid #83a598;
+  background-color: #242936;
+  border: 2px solid #D5FF80;
 
   min-width: 640px;
-  max-width: 640px;
+  max-width: 880px;
 }
 
 #inputLine {
   border-radius: 2px;
   font-size: 18px;
-  selection-color: #83a598;
-  selection-background-color: #a89984;
-  background-color: #282828;
+  selection-color: #fe8019;
+  selection-background-color: #242936;
+  background-color: #242936;
 }
 
 #settingsButton {
@@ -40,12 +36,16 @@
 
 QListView {
   background: transparent;
-  selection-color: #f8f8f2;
+  selection-color: #fe8019;
+}
+
+QListView::item {
+    border-radius: 6px;
+    padding: 6px;
 }
 
 QListView::item:selected {
-  border-radius: 6px;
-  background: qlineargradient(x1:0, x2:1, stop:0.0 #44475a, stop:0.5 #44475a, stop:1.0 #44475a);
+  border-radius: 8px;
 }
 
 QListView QScrollBar:vertical {
@@ -83,3 +83,4 @@ QListView#resultsList {
 QListView#resultsList::item{
   height: 48px;
 }
+

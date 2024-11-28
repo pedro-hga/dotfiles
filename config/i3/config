@@ -6,7 +6,7 @@ mouse_warping none
 set $mod Mod4
 floating_modifier $mod
 new_window pixel 1
-font pango:SF Mono 12
+font pango:IBM Plex Mono 12
 
 # Autostart applications and services
 exec_always --no-startup-id autotiling
