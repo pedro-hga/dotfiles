@@ -1,0 +1,15 @@
+bar {
+    status_command i3blocks
+    position top
+    tray_output DP-0
+    tray_padding 4
+    colors {
+        background $bg5
+        statusline $fg0
+        separator $cyan
+        focused_workspace $cyan $cyan $bg2
+        active_workspace $bg1 $bg2 $bg2
+        inactive_workspace $bg1 $bg2 $fg1
+        urgent_workspace $red $red $bg2
+    }
+}
