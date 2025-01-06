@@ -6,12 +6,12 @@ local config = wezterm.config_builder()
 
 -- config
 -- config.color_scheme = "Nord (Gogh)"
-config.color_scheme = "terafox"
--- config.color_scheme = "GruvboxDark"
+-- config.color_scheme = "terafox"
+config.color_scheme = "GruvboxDark"
 config.colors = {
 	-- background = "#15291E",
 	-- background = "#002B36",
-	background = "#191D24",
+	background = "#00181E",
 }
 
 -- config.font = wezterm.font("Iosevka Nerd Font", { weight = "Medium" })
@@ -19,8 +19,8 @@ config.colors = {
 -- config.font = wezterm.font("Iosevka Nerd Font", { weight = "Medium" })
 config.font = wezterm.font("MonaspiceNe Nerd Font")
 -- config.font = wezterm.font("IBM Plex Mono")
-config.font_size = 12
-config.line_height = 1.25
+config.font_size = 13
+config.line_height = 1.5
 config.cell_width = 1
 
 config.hide_tab_bar_if_only_one_tab = true

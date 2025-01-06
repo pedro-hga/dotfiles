@@ -16,9 +16,10 @@ exec --no-startup-id diodon
 exec --no-startup-id dunst
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets,pkcs11,ssh,gpg
 exec --no-startup-id xrandr --output DP-0 --primary --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI-0 --mode 3840x2160 --pos 3840x-900 --rotate left
+# exec --no-startup-id xrandr --output DP-0 --primary --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI-0 --off
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id nm-applet
-exec_always feh --bg-fill /home/pedro/Pictures/wallpaper.jpg
+exec_always xwallpaper --output DP-0 --zoom /home/pedro/Pictures/wallpaper.jpg --output HDMI-0 --zoom /home/pedro/Pictures/wallpaper2.jpg
 
 # Toggle Touchpad On/Off
 exec_always --no-startup-id ~/.config/i3scripts/touchpad.sh

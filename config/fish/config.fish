@@ -48,6 +48,8 @@ if status is-interactive
     # config zoxide
     zoxide init fish | source
 
+    abbr tomonitor 'xrandr --output HDMI-0 --off'
+    abbr dualmonitor 'xrandr --output DP-0 --primary --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI-0 --mode 3840x2160 --pos 3840x-900 --rotate left'
 
     # Start SSH agent and add the key if not already running
     if not pgrep -u $USER ssh-agent >/dev/null
