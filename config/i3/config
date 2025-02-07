@@ -141,27 +141,26 @@ bindsym --release $mod+Shift+s exec --no-startup-id import png:- | tee ~/Picture
 # Status bar setup
 include ~/.config/i3scripts/blocks_config
 
-# Color schemes (Gruvbox and Terafox)
-set $bg0      #152528
+set $bg0      #2e3440
 set $bg1      #1d3337
 set $bg2      #254147
 set $bg3      #2d4f56
 set $bg4      #0f1c1e
 set $bg5      #1E1F29
-set $fg0      #fbf1c7
-set $fg1      #ebdbb2
-set $fg2      #d5c4a1
+set $fg0      #d8dee9
+set $fg1      #e5e9f0
+set $fg2      #eceff4
 set $fg3      #bdae93
 set $fg4      #a89984
-set $yellow   #c89725
-set $orange   #fe8019
-set $red      #fb4934
+set $yellow   #ebcb8b
+set $orange   #d08770
+set $red      #bf616a
 set $magenta  #d3869b
-set $violet   #b16286
-set $blue     #83a598
-set $cyan     #8ec07c
-set $green    #b8bb26
-set $gray     #79AFB9
+set $violet   #b48ead
+set $blue     #5e81ac
+set $cyan     #8fbcbb
+set $green    #a3be8c
+set $gray     #d8dee9
 
 
 # Border colors

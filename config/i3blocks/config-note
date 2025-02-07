@@ -25,8 +25,17 @@ interval=30
 
 [separator]
 
+[lightness]
+label=☀ 
+command=xbacklight -get | xargs printf '%.0f%%\n'
+color=#8fa1b3
+interval=once
+signal=2
+
+[separator]
+
 [battery]
-command=/home/pedro/gitrepos/dotfiles/config/i3blocks/battery.sh
+command=/home/pedro/gitrepos/dotfiles/config/i3blocks/battery-2.sh
 interval=10
 
 [separator]

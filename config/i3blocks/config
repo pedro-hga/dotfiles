@@ -1,8 +1,16 @@
 full_text=|
 align=center
-color=#79AFB9
+color=#d8dee9
 separator=false
-separator_block_width=24
+separator_block_width=28
+
+[volume]
+label= 
+command=amixer get Master | awk -F'[][]' '/Left:/ { if ($4 == "off") { print "Mute" } else { print $2 } }'
+interval=1
+color=#d8dee9
+
+[separator]
 
 [memory]
 label=
@@ -18,12 +26,6 @@ interval=10
 
 [separator]
 
-[volume]
-label= 
-command=amixer get Master | awk -F'[][]' '/Left:/ { if ($4 == "off") { print "Mute" } else { print $2 } }'
-interval=1
-
-[separator]
 [keyboard]
 label= 
 command=setxkbmap -query | grep layout | awk '{print $2}'
@@ -32,14 +34,14 @@ interval=1
 [separator]
 
 [time]
-color=#C38983
+color=#ebcb8b
 command=date '+%H:%M:%S'
 interval=1
 
 [separator]
 
 [date]
-color=#C38983 
+color=#ebcb8b 
 command=date '+%a, %d-%m-%Y'
 interval=60
 
