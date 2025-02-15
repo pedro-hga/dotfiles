@@ -23,8 +23,12 @@ if status is-interactive
     set -g fish_color_escape yellow
     set -g fish_color_param magenta
 
+    set -g pure_color_current_directory yellow
+    set -g pure_color_prompt_on_success normal
+    set -g pure_color_success blue
+
     # Prompt Symbol (optional, default is ❯)
-    set -g pure_symbol_prompt "❯❯"
+    set -g pure_symbol_prompt ""
 
     # Git Symbol (optional, default is '±')
     set -g pure_symbol_git ""
@@ -33,7 +37,7 @@ if status is-interactive
     set -g pure_show_execution_time true
 
     # Shorten working directory path
-    set -g pure_path_truncate 1
+    set -g pure_truncate_prompt_current_directory_keeps 2
 
     # Use single-line prompt
     set -g pure_prompt_on_new_line false
@@ -47,9 +51,6 @@ if status is-interactive
 
     # config zoxide
     zoxide init fish | source
-
-    abbr tomonitor 'xrandr --output HDMI-0 --off'
-    abbr dualmonitor 'xrandr --output DP-0 --primary --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI-0 --mode 3840x2160 --pos 3840x-900 --rotate left'
 
     # Start SSH agent and add the key if not already running
     if not pgrep -u $USER ssh-agent >/dev/null

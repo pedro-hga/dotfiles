@@ -1,30 +1,8 @@
-full_text=|
+full_text=
 align=center
 color=#d8dee9
 separator=false
-separator_block_width=28
-
-[volume]
-label= 
-command=amixer get Master | awk -F'[][]' '/Left:/ { if ($4 == "off") { print "Mute" } else { print $2 } }'
-interval=1
-color=#d8dee9
-
-[separator]
-
-[memory]
-label=
-command=free -h | awk '/^Mem:/ { print $3"/"$2 }' | sed s/i//g
-interval=10
-
-[separator]
-
-[cpu]
-label=
-command=top -bn1 | grep "Cpu(s)" | awk '{print $2 + $4"%"}'
-interval=10
-
-[separator]
+separator_block_width=20
 
 [keyboard]
 label= 
@@ -33,10 +11,11 @@ interval=1
 
 [separator]
 
-[time]
-color=#ebcb8b
-command=date '+%H:%M:%S'
-interval=1
+[volume]
+label= 
+command=amixer get Master | awk -F'[][]' '/Left:/ { if ($4 == "off") { print "Mute" } else { print $2 } }'
+interval=once
+signal=10
 
 [separator]
 
@@ -44,5 +23,10 @@ interval=1
 color=#ebcb8b 
 command=date '+%a, %d-%m-%Y'
 interval=60
+
+[time]
+color=#ebcb8b
+command=date '+%H:%M:%S'
+interval=1
 
 [separator]

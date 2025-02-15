@@ -1,12 +1,13 @@
-# i3 config file (v4) - Customized
+exec_always --no-startup-id xrdb -merge ~/.Xresources
 
-# General settings
 focus_follows_mouse no
 mouse_warping none
 set $mod Mod4
 floating_modifier $mod
-new_window pixel 1
-font pango:IBM Plex Mono Medium 13
+font pango:MonaspiceNe Nerd Font 14
+new_window pixel 2
+gaps inner 6
+gaps outer 6
 
 # Autostart applications and services
 exec_always --no-startup-id autotiling
@@ -15,23 +16,12 @@ exec_always --no-startup-id compton
 exec --no-startup-id diodon
 exec --no-startup-id dunst
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets,pkcs11,ssh,gpg
-exec --no-startup-id xrandr --output DP-0 --primary --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI-0 --mode 3840x2160 --pos 3840x-900 --rotate left
-# exec --no-startup-id xrandr --output DP-0 --primary --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI-0 --off
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id nm-applet
-exec_always xwallpaper --output DP-0 --zoom /home/pedro/Pictures/wallpaper.jpg --output HDMI-0 --zoom /home/pedro/Pictures/wallpaper2.jpg
+exec_always xwallpaper --zoom /home/pedro/Pictures/wallpaper.jpg
 
 # Toggle Touchpad On/Off
 exec_always --no-startup-id ~/.config/i3scripts/touchpad.sh
-
-# Workspace assignment
-workspace 1 output DP-0
-workspace 2 output DP-0
-workspace 3 output DP-0
-workspace 4 output DP-0
-workspace 5 output HDMI-0
-workspace 6 output HDMI-0
-workspace 7 output DP-0
 
 # Key bindings
 ## Application Launching
@@ -64,9 +54,9 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show, floating toggle
 
 ## Volume and Media Control
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -SIGRTMIN+10 i3blocks
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -SIGRTMIN+10 i3blocks
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && pkill -SIGRTMIN+10 i3blocks
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
@@ -164,7 +154,7 @@ set $gray     #d8dee9
 
 
 # Border colors
-client.focused          $bg0 $fg0 $bg1 $fg0 $fg0
+client.focused          $bg0 $fg0 $bg1 $green $green
 client.focused_inactive $bg1 $bg2 $fg2 $bg3 $bg2
 client.unfocused        $bg0 $gray $bg1 $fg3 $bg1
 client.urgent           $bg1 $red $fg1 $red $bg1
