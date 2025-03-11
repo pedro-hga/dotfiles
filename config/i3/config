@@ -4,7 +4,7 @@ focus_follows_mouse no
 mouse_warping none
 set $mod Mod4
 floating_modifier $mod
-font pango:MonaspiceNe Nerd Font 14
+font pango:MonaspiceNe Nerd Font 13
 new_window pixel 2
 gaps inner 6
 gaps outer 6
@@ -13,20 +13,19 @@ gaps outer 6
 exec_always --no-startup-id autotiling
 exec_always --no-startup-id numlockx on
 exec_always --no-startup-id compton
+exec_always xwallpaper --zoom /home/pedro/Pictures/wallpaper.jpg
+exec --no-startup-id albert
 exec --no-startup-id diodon
 exec --no-startup-id dunst
-exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets,pkcs11,ssh,gpg
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id nm-applet
-exec_always xwallpaper --zoom /home/pedro/Pictures/wallpaper.jpg
-
-# Toggle Touchpad On/Off
-exec_always --no-startup-id ~/.config/i3scripts/touchpad.sh
 
 # Key bindings
 ## Application Launching
-bindsym $mod+Return exec wezterm
-bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+Return exec ghostty
+# bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+d exec --no-startup-id rofi -show drun
+# bindsym Mod1+Tab exec --no-startup-id rofi -show drun
 bindsym $mod+c exec --no-startup-id gcolor3
 bindsym $mod+e exec nemo
 
@@ -49,7 +48,7 @@ bindsym $mod+q layout toggle split
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+Ctrl+space focus mode_toggle
 bindsym $mod+a focus parent
-bindsym $mod+space "exec setxkbmap -query | grep us && setxkbmap -layout br || setxkbmap -layout us"
+bindsym $mod+space "exec setxkbmap -query | grep us && setxkbmap -layout br || setxkbmap -layout us && pkill -SIGRTMIN+13 i3blocks"
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show, floating toggle
 
@@ -129,8 +128,6 @@ bindsym $mod+Shift+button5 workspace prev
 bindsym --release $mod+Shift+s exec --no-startup-id import png:- | tee ~/Pictures/Screenshots/screenshot_$(date +"%Y%m%d_%H%M%S").png | xclip -selection clipboard -t image/png
 
 # Status bar setup
-include ~/.config/i3scripts/blocks_config
-
 set $bg0      #2e3440
 set $bg1      #1d3337
 set $bg2      #254147
@@ -152,9 +149,25 @@ set $cyan     #8fbcbb
 set $green    #a3be8c
 set $gray     #d8dee9
 
+bar {
+    status_command i3blocks
+    position top
+    tray_output DP-0
+    tray_padding 6
+    colors {
+        background $bg0
+        statusline $fg0
+        separator $cyan
+        focused_workspace $yellow $yellow $bg2
+        active_workspace $bg1 $bg2 $bg2
+        inactive_workspace $bg1 $bg0 $fg1
+        urgent_workspace $red $red $bg2
+    }
+}
+
 
 # Border colors
-client.focused          $bg0 $fg0 $bg1 $green $green
+client.focused          $bg0 $fg0 $bg1 $yellow $yellow
 client.focused_inactive $bg1 $bg2 $fg2 $bg3 $bg2
 client.unfocused        $bg0 $gray $bg1 $fg3 $bg1
 client.urgent           $bg1 $red $fg1 $red $bg1

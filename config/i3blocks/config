@@ -1,13 +1,14 @@
 full_text=
 align=center
-color=#d8dee9
+color=#8fbcbb
 separator=false
 separator_block_width=20
 
 [keyboard]
 label= 
 command=setxkbmap -query | grep layout | awk '{print $2}'
-interval=1
+interval=once
+signal=13
 
 [separator]
 
@@ -20,12 +21,13 @@ signal=10
 [separator]
 
 [date]
-color=#ebcb8b 
-command=date '+%a, %d-%m-%Y'
-interval=60
+command=date '+%a %d.%m.%Y'
+interval=once
+
+[separator]
 
 [time]
-color=#ebcb8b
+color=#d08770
 command=date '+%H:%M:%S'
 interval=1
 
