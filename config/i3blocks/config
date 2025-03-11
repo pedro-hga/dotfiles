@@ -28,6 +28,12 @@ signal=10
 
 [separator]
 
+[battery]
+command=/home/pedro/.config/i3scripts/battery.sh
+interval=120
+
+[separator]
+
 [date]
 command=date '+%a %d.%m.%Y'
 interval=once
