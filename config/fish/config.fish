@@ -78,3 +78,4 @@ if status is-interactive
     # config zoxide
     zoxide init fish | source
 end
+~/.local/bin/mise activate fish | source

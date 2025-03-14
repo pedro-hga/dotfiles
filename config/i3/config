@@ -4,7 +4,7 @@ focus_follows_mouse no
 mouse_warping none
 set $mod Mod4
 floating_modifier $mod
-font pango:MonaspiceNe Nerd Font 13
+font pango:Iosevka Nerd Font 13
 new_window pixel 2
 gaps inner 6
 gaps outer 6
@@ -169,7 +169,7 @@ bar {
 
 
 # Border colors
-client.focused          $bg0 $fg0 $bg1 $yellow $yellow
+client.focused          $bg0 $yellow $bg1 $yellow $yellow
 client.focused_inactive $bg1 $bg2 $fg2 $bg3 $bg2
 client.unfocused        $bg0 $gray $bg1 $fg3 $bg1
 client.urgent           $bg1 $red $fg1 $red $bg1
