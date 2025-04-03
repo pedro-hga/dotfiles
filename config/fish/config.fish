@@ -36,12 +36,12 @@ if status is-interactive
     set -g fish_color_escape yellow
     set -g fish_color_param magenta
 
-    set -g pure_color_current_directory yellow
+    set -g pure_color_current_directory green
     set -g pure_color_prompt_on_success normal
     set -g pure_color_success blue
 
     # Prompt Symbol (optional, default is ❯)
-    set -g pure_symbol_prompt ""
+    set -g pure_symbol_prompt ""
 
     # Git Symbol (optional, default is '±')
     set -g pure_symbol_git ""
@@ -55,7 +55,6 @@ if status is-interactive
     # Use single-line prompt
     set -g pure_prompt_on_new_line false
 
-    bind \el accept-autosuggestion
 
     # aliases
     function shutdown
@@ -74,8 +73,34 @@ if status is-interactive
     function refresh-shell
         exec fish
     end
-    bind \eb refresh-shell
+
+    bind \el accept-autosuggestion
+    bind \cb refresh-shell
+
+    function fish_user_key_bindings
+        bind -M insert \el accept-autosuggestion
+        bind -M insert \cb refresh-shell
+    end
+
     # config zoxide
     zoxide init fish | source
+
+    alias nj='env NVIM_APPNAME=nvim-java nvim'
+
+    # Function to interactively select Neovim configuration
+    function nvims
+        set -l items default nvim-java
+        set -l config (printf "%s\n" $items | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
+
+        if test -z "$config"
+            echo "Nothing selected"
+            return 0
+        else if test "$config" = default
+            set config ""
+        end
+
+        env NVIM_APPNAME=$config nvim $argv
+    end
 end
+
 ~/.local/bin/mise activate fish | source
