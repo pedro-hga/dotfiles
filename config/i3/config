@@ -4,7 +4,7 @@ focus_follows_mouse no
 mouse_warping none
 set $mod Mod4
 floating_modifier $mod
-font pango:Iosevka Nerd Font 13
+font pango:ZedMono Nerd Font 14
 new_window pixel 2
 gaps inner 6
 gaps outer 6

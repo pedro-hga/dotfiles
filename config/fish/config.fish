@@ -50,7 +50,7 @@ if status is-interactive
     set -g pure_show_execution_time true
 
     # Shorten working directory path
-    set -g pure_truncate_prompt_current_directory_keeps 2
+    set -g pure_truncate_prompt_current_directory_keeps 3
 
     # Use single-line prompt
     set -g pure_prompt_on_new_line false
@@ -86,10 +86,11 @@ if status is-interactive
     zoxide init fish | source
 
     alias nj='env NVIM_APPNAME=nvim-java nvim'
+    alias no='env NVIM_APPNAME=nvim-obsidian nvim'
 
     # Function to interactively select Neovim configuration
     function nvims
-        set -l items default nvim-java
+        set -l items default nvim-java nvim-obsidian
         set -l config (printf "%s\n" $items | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
 
         if test -z "$config"
@@ -104,3 +105,7 @@ if status is-interactive
 end
 
 ~/.local/bin/mise activate fish | source
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+set -gx PATH /opt/spring-boot-cli/bin $PATH
