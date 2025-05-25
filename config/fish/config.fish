@@ -19,7 +19,7 @@ if status is-interactive
     set -g pure_show_git_untracked_files true
 
     set -g fish_color_normal normal
-    set -g fish_color_command blue
+    set -g fish_color_command green
     set -g fish_color_quote magenta
     set -g fish_color_red red
     set -g fish_color_green green
@@ -31,17 +31,17 @@ if status is-interactive
     set -g fish_color_black black
     set -g fish_color_selection_bg black
     set -g fish_color_selection_fg normal
-    set -g fish_color_search_match cyan
+    set -g fish_color_search_match blue
     set -g fish_color_operator normal
     set -g fish_color_escape yellow
     set -g fish_color_param magenta
 
-    set -g pure_color_current_directory green
-    set -g pure_color_prompt_on_success normal
-    set -g pure_color_success blue
+    set -g pure_color_current_directory cyan
+    set -g pure_color_prompt_on_success yellow
+    set -g pure_color_success green
 
     # Prompt Symbol (optional, default is ❯)
-    set -g pure_symbol_prompt ""
+    set -g pure_symbol_prompt ">>"
 
     # Git Symbol (optional, default is '±')
     set -g pure_symbol_git ""

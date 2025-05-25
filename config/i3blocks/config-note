@@ -1,0 +1,48 @@
+full_text=
+align=center
+color=#8fbcbb
+separator=false
+separator_block_width=20
+
+[keyboard]
+label= 
+command=setxkbmap -query | grep layout | awk '{print $2}'
+interval=once
+signal=13
+
+[separator]
+
+[volume]
+label= 
+command=wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED && echo "Mute" || wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -o '[0-9]\.[0-9]\+' | awk '{print int($1*100)"%"}'
+interval=once
+signal=10
+
+[separator]
+
+[lightness]
+label=☀ 
+command=brightnessctl -m | awk -F, '{printf "%.0f%%\n", $4}'
+interval=once
+signal=9
+
+[separator]
+
+[battery]
+command=~/.config/i3scripts/battery.sh
+interval=120
+
+[separator]
+
+[date]
+command=date '+%a %d.%m.%Y'
+interval=once
+
+[separator]
+
+[time]
+color=#d08770
+command=date '+%H:%M:%S'
+interval=1
+
+[separator]

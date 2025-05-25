@@ -21,8 +21,10 @@ exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id nm-applet
 
 # Touchpad settings
-exec_always --no-startup-id ~/.config/i3scripts/touchpad-config.sh
-bindsym $mod+Shift+t exec --no-startup-id ~/.config/i3scripts/touchpad-switch.sh
+exec_always --no-startup-id /home/pedro/gitrepos/dotfiles/config/i3scripts/touchpad-dell.sh
+# exec_always --no-startup-id /home/pedro/gitrepos/dotfiles/config/i3scripts/touchpad-lenovo.sh
+bindsym $mod+Shift+t exec --no-startup-id /home/pedro/gitrepos/dotfiles/config/i3scripts/touchpad-switch-dell.sh
+#bindsym $mod+Shift+t exec --no-startup-id /home/pedro/gitrepos/dotfiles/config/i3scripts/touchpad-switch-lenovo.sh
 
 # Key bindings
 ## Application Launching
