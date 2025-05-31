@@ -16,6 +16,10 @@ if not ssh-add -l >/dev/null
 end
 
 if status is-interactive
+    set -gx EDITOR nvim
+    set -gx VISUAL nvim
+    set -gx SUDO_EDITOR nvim
+
     set -g pure_show_git_untracked_files true
 
     set -g fish_color_normal normal
