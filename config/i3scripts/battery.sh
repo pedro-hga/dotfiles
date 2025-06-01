@@ -10,16 +10,16 @@ BAT=$(cat /sys/class/power_supply/BAT0/capacity)
 STATUS=$(cat /sys/class/power_supply/BAT0/status)
 
 # Define colors
-GREEN="#a3be8c"
-YELLOW="#ebcb8b"
-ORANGE="#d08770"
-RED="#bf616a"
+GREEN="#83c092"
+YELLOW="#dbbc7f"
+ORANGE="#e69875"
+RED="#e67e80"
 
 # Output based on battery status and capacity
 if [ "$STATUS" = "Charging" ]; then
   echo -e "$BAT%  "
   echo "$BAT%"
-  echo "#8fbcbb"
+  echo "$GREEN"
 else
   if [ "$BAT" -ge 90 ]; then
     echo -e " $BAT%"

@@ -4,7 +4,7 @@ focus_follows_mouse no
 mouse_warping none
 set $mod Mod4
 floating_modifier $mod
-font pango:ZedMono Nerd Font 14
+font pango:GeistMono Nerd Font 13
 new_window pixel 2
 gaps inner 6
 gaps outer 6
@@ -133,26 +133,26 @@ bindsym $mod+Shift+button5 workspace prev
 bindsym --release $mod+Shift+s exec --no-startup-id import png:- | tee ~/Pictures/Screenshots/screenshot_$(date +"%Y%m%d_%H%M%S").png | xclip -selection clipboard -t image/png
 
 # Status bar setup
-set $bg0      #2e3440
-set $bg1      #1d3337
-set $bg2      #254147
-set $bg3      #2d4f56
-set $bg4      #0f1c1e
-set $bg5      #1E1F29
-set $fg0      #d8dee9
-set $fg1      #e5e9f0
-set $fg2      #eceff4
-set $fg3      #bdae93
-set $fg4      #a89984
-set $yellow   #ebcb8b
-set $orange   #d08770
-set $red      #bf616a
-set $magenta  #d3869b
-set $violet   #b48ead
-set $blue     #5e81ac
-set $cyan     #8fbcbb
-set $green    #a3be8c
-set $gray     #d8dee9
+set $bg0      #2b3339
+set $bg1      #323c41
+set $bg2      #3a454a
+set $bg3      #475258
+set $bg4      #5c6a72
+set $bg5      #64737d
+set $fg0      #d3c6aa
+set $fg1      #e4e1cd
+set $fg2      #fdf6e3
+set $fg3      #c5c9c5
+set $fg4      #9da9a0
+set $yellow   #dbbc7f
+set $orange   #e69875
+set $red      #e67e80
+set $magenta  #d699b6
+set $violet   #a48ec9
+set $blue     #7fbbb3
+set $cyan     #7fbbb3
+set $green    #7fbbb3
+set $gray     #a0a8b0
 
 bar {
     status_command i3blocks

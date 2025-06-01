@@ -1,6 +1,6 @@
 full_text=
 align=center
-color=#8fbcbb
+color=#7fbbb3  # leaf green (used for general text)
 separator=false
 separator_block_width=20
 
@@ -27,7 +27,7 @@ interval=once
 [separator]
 
 [time]
-color=#d08770
+color=#dbbc7f  # yellow (used for time to stand out)
 command=date '+%H:%M:%S'
 interval=1
 
