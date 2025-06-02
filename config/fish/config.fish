@@ -45,7 +45,7 @@ if status is-interactive
     set -g pure_color_success green
 
     # Prompt Symbol (optional, default is ❯)
-    set -g pure_symbol_prompt ">>"
+    set -g pure_symbol_prompt "❯"
 
     # Git Symbol (optional, default is '±')
     set -g pure_symbol_git ""
@@ -74,16 +74,19 @@ if status is-interactive
     end
     bind \es sudo!!
 
-    function refresh-shell
+    function refresh-shell --description "Restart the Fish shell"
+        commandline -f repaint
         exec fish
     end
 
-    bind \el accept-autosuggestion
-    bind \cb refresh-shell
-
     function fish_user_key_bindings
-        bind -M insert \el accept-autosuggestion
+        bind -M insert \cl accept-autosuggestion
         bind -M insert \cb refresh-shell
+        bind -M insert \ck up-or-search
+        bind -M insert \cj down-or-search
+        bind -M insert \ch backward-char
+        bind -M insert \cl forward-char
+        bind -M insert \cu kill-whole-line
     end
 
     # config zoxide
