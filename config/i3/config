@@ -67,8 +67,10 @@ bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5% && pkill 
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%- && pkill -SIGRTMIN+9 i3blocks
 
 ## Notifications
-bindsym $mod+Shift+n exec --no-startup-id pkill -SIGUSR1 dunst
-bindsym $mod+Shift+m exec --no-startup-id pkill -SIGUSR2 dunst
+bindsym $mod+Shift+n exec --no-startup-id ~/.config/i3scripts/notifications.sh
+
+bindsym $mod+Shift+m exec --no-startup-id sh -c 'dunstctl set-paused false && \
+  notify-send "🔔 Notifications Resumed"'
 
 ## Workspace Switching
 set $ws1 "1"

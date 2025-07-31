@@ -1,6 +1,6 @@
 /* === Global Styles === */
 * {
-  font-family: "GeistMono Nerd Font";
+  font-family: "Geist";
   font-size: 13px;
   color: #c6d0f5;               /* Text */
   background-color: #303446;   /* Base */
