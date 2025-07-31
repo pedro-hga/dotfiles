@@ -1,6 +1,5 @@
 [global]
-    script = ~/gitrepos/dotfiles/config/dunst/handle_notification.sh
-    monitor = 0
+    script = ~/.config/dunst/handle_notification.sh
     follow = mouse
     geometry = "0x0-30+20"
     indicate_hidden = yes
@@ -54,18 +53,17 @@
     context = ctrl+shift+period
 
 [urgency_low]
-    background = "#3B4252"  # Nord 1
-    foreground = "#E5E9F0"  # Nord 6
+    background = "#303446"
+    foreground = "#c6d0f5"
     timeout = 5
 
 [urgency_normal]
-    background = "#434C5E"  # Nord 2
-    foreground = "#E5E9F0"  # Nord 6
-    frame_color = "#ebcb8b"  # Nord 11
+    background = "#303446"
+    foreground = "#c6d0f5"
     timeout = 5
 
 [urgency_critical]
-    background = "#434C5E"  # Nord 2
-    foreground = "#E5E9F0"  # Nord 6
-    frame_color = "#BF616A"  # Nord 11
+    background = "#303446"
+    foreground = "#c6d0f5"
+  frame_color = "#ef9f76"
     timeout = 5

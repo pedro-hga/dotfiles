@@ -21,10 +21,8 @@ exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id nm-applet
 
 # Touchpad settings
-exec_always --no-startup-id /home/pedro/gitrepos/dotfiles/config/i3scripts/touchpad-dell.sh
-# exec_always --no-startup-id /home/pedro/gitrepos/dotfiles/config/i3scripts/touchpad-lenovo.sh
-bindsym $mod+Shift+t exec --no-startup-id /home/pedro/gitrepos/dotfiles/config/i3scripts/touchpad-switch-dell.sh
-#bindsym $mod+Shift+t exec --no-startup-id /home/pedro/gitrepos/dotfiles/config/i3scripts/touchpad-switch-lenovo.sh
+exec_always --no-startup-id /home/pedro/.config/i3scripts/touchpad.sh
+bindsym $mod+Shift+t exec --no-startup-id /home/pedro/.config/i3scripts/touchpad-switch.sh
 
 # Key bindings
 ## Application Launching
@@ -67,6 +65,10 @@ bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5% && pkill -SIGRTMIN+9 i3blocks
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%- && pkill -SIGRTMIN+9 i3blocks
+
+## Notifications
+bindsym $mod+Shift+n exec --no-startup-id pkill -SIGUSR1 dunst
+bindsym $mod+Shift+m exec --no-startup-id pkill -SIGUSR2 dunst
 
 ## Workspace Switching
 set $ws1 "1"

@@ -1,0 +1,99 @@
+/* === Global Styles === */
+* {
+  font-family: "GeistMono Nerd Font";
+  font-size: 13px;
+  color: #c6d0f5;               /* Text */
+  background-color: #303446;   /* Base */
+  border: none;
+}
+
+/* === Main Frame === */
+#frame {
+  padding: 24px;
+  border-radius: 12px;
+  background-color: #303446;   /* Base */
+  border: 2px solid #ef9f76;   /* Yellow (Catppuccin style) */
+
+  min-width: 640px;
+  max-width: 880px;
+}
+
+/* === Input Line === */
+#inputLine {
+  font-size: 18px;
+  border-radius: 4px;
+  background-color: #303446;
+  selection-color: #ef9f76;              /* Yellow */
+  selection-background-color: #232634;   /* Crust */
+}
+
+/* === Settings Button === */
+#settingsButton {
+  color: #ef9f76;              /* Yellow */
+  background-color: #303446;
+  padding: 8px;
+  margin: 5px 10px 0 0;
+
+  min-width: 13px;
+  min-height: 13px;
+  max-width: 13px;
+  max-height: 13px;
+}
+
+/* === ListView General === */
+QListView {
+  background: transparent;
+  selection-color: #ef9f76;
+}
+
+QListView::item {
+  border-radius: 6px;
+  padding: 6px;
+}
+
+QListView::item:selected {
+  border-radius: 8px;
+  background-color: #414559;  /* Surface1 */
+}
+
+/* === Scrollbar === */
+QListView QScrollBar:vertical {
+  width: 5px;
+  background: transparent;
+}
+
+QListView QScrollBar::handle:vertical {
+  background: #737994;         /* Overlay1 */
+  min-height: 24px;
+}
+
+QListView QScrollBar::add-line:vertical,
+QListView QScrollBar::sub-line:vertical,
+QListView QScrollBar::up-arrow:vertical,
+QListView QScrollBar::down-arrow:vertical,
+QListView QScrollBar::add-page:vertical,
+QListView QScrollBar::sub-page:vertical {
+  width: 0px;
+  height: 0px;
+  border: none;
+  background: transparent;
+}
+
+/* === Action List === */
+QListView#actionList {
+  font-size: 18px;
+}
+
+QListView#actionList::item {
+  height: 18px;
+}
+
+/* === Results List === */
+QListView#resultsList {
+  font-size: 18px;
+  icon-size: 36px;
+}
+
+QListView#resultsList::item {
+  height: 48px;
+}
