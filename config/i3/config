@@ -10,7 +10,7 @@ gaps inner 6
 gaps outer 6
 
 # Autostart applications and services
-exec_always --no-startup-id autotiling
+exec_always --no-startup-id i3-auto-tiling
 exec_always --no-startup-id numlockx on
 exec_always --no-startup-id compton
 exec_always xwallpaper --zoom /home/pedro/Pictures/wallpaper.jpg
