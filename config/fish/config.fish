@@ -65,6 +65,10 @@ if status is-interactive
         exec fish
     end
 
+    function mkcd
+        mkdir -p $argv[1]; and cd $argv[1]
+    end
+
     function fish_user_key_bindings
         bind -M insert \cl accept-autosuggestion
         bind -M insert \cb refresh-shell
