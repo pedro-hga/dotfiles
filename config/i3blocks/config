@@ -21,7 +21,7 @@ signal=10
 [separator]
 
 [date]
-command=date '+%a %d.%m.%Y'
+command=/home/pedro/.config/i3scripts/calendar.sh
 interval=once
 
 [separator]
