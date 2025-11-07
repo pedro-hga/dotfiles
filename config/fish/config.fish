@@ -2,6 +2,10 @@ if not contains /usr/bin $PATH
     fish_add_path /usr/bin
 end
 
+if not contains /home/pedro/.config/herd-lite/bin $PATH
+    fish_add_path /home/pedro/.config/herd-lite/bin
+end
+
 # SSH key management
 if not ssh-add -l >/dev/null
     ssh-add ~/.ssh/id_ed25519
@@ -68,7 +72,6 @@ if status is-interactive
     function mkcd
         mkdir -p $argv[1]; and cd $argv[1]
     end
-
     function fish_user_key_bindings
         bind -M insert \cl accept-autosuggestion
         bind -M insert \cb refresh-shell
@@ -81,12 +84,15 @@ if status is-interactive
 
     # config zoxide
     zoxide init fish | source
+
+    # nvim aliases
     alias nj='env NVIM_APPNAME=nvim-java nvim'
     alias no='env NVIM_APPNAME=nvim-obsidian nvim'
+    alias np='env NVIM_APPNAME=nvim-php nvim'
 
     # nvim profiles
     function nvims
-        set -l items default nvim-java nvim-obsidian
+        set -l items default nvim-java nvim-obsidian nvim-php
         set -l config (printf "%s\n" $items | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
         if test -z "$config"
             echo "Nothing selected"
