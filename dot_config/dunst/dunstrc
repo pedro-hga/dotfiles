@@ -1,6 +1,7 @@
 [global]
     follow = mouse
-    geometry = "0x0-30+20"
+    origin = top-center
+    geometry = "0x0+0+20"
     indicate_hidden = yes
     shrink = no
     transparency = 0
@@ -40,6 +41,10 @@
 
     mouse_left_click = do_action
     mouse_middle_click = close_all
+    mouse_right_click = close_current
+
+    icon_theme = Papirus
+    icon_path = /usr/share/icons/Papirus/16x16/status:/usr/share/icons/Papirus/24x24/status:/usr/share/icons/Papirus/32x32/status
     mouse_right_click = close_current
 
     icon_theme = Papirus
