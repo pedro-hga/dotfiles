@@ -1,0 +1,7 @@
+[tools]
+bat = "latest"
+fzf = "latest"
+jq = "latest"
+tmux = "latest"
+yazi = "latest"
+zoxide = "latest"

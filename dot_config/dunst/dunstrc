@@ -1,0 +1,67 @@
+[global]
+    follow = mouse
+    geometry = "0x0-30+20"
+    indicate_hidden = yes
+    shrink = no
+    transparency = 0
+    notification_height = 0
+    separator_height = 2
+    padding = 8
+    horizontal_padding = 8
+    frame_width = 2
+    frame_color = "#c4a7e7"
+    separator_color = "#26233a"
+    sort = yes
+    idle_threshold = 120
+    font = Lilex Nerd Font 10
+    line_height = 0
+    markup = full
+    format = "<b>%s</b>\n%b"
+    alignment = center
+    show_age_threshold = 60
+    word_wrap = yes
+    ellipsize = middle
+    ignore_newline = no
+    stack_duplicates = true
+    hide_duplicate_count = false
+    show_indicators = yes
+    icon_position = left
+    max_icon_size = 32
+    sticky_history = yes
+    history_length = 20
+    dmenu = /usr/bin/dmenu -p dunst:
+    browser = /usr/bin/firefox
+    title = Dunst
+    class = Dunst
+    startup_notification = false
+    verbosity = mesg
+    corner_radius = 6
+    force_xinerama = false
+
+    mouse_left_click = do_action
+    mouse_middle_click = close_all
+    mouse_right_click = close_current
+
+    icon_theme = Papirus
+    icon_path = /usr/share/icons/Papirus/16x16/status:/usr/share/icons/Papirus/24x24/status:/usr/share/icons/Papirus/32x32/status
+
+[experimental]
+    per_monitor_dpi = false
+
+[urgency_low]
+    background = "#1f1d2e"
+    foreground = "#908caa"
+    frame_color = "#31748f"
+    timeout = 5
+
+[urgency_normal]
+    background = "#1f1d2e"
+    foreground = "#e0def4"
+    frame_color = "#9ccfd8"
+    timeout = 5
+
+[urgency_critical]
+    background = "#1f1d2e"
+    foreground = "#e0def4"
+    frame_color = "#eb6f92"
+    timeout = 5

@@ -1,0 +1,93 @@
+@import "~/.config/rofi/local.rasi"
+
+* {
+    /* Base */
+    base: #232136;
+    surface: #2a273f;
+    overlay: #393552;
+    darker: #211F33;
+    /* Muted tones */
+    muted: #6e6a86;
+    subtle: #908caa;
+    /* Text */
+    text: #e0def4;
+    love: #eb6f92;
+    gold: #f6c177;
+    rose: #ea9a97;
+    pine: #3e8fb0;
+    foam: #9ccfd8;
+    iris: #c4a7e7;
+    /* Highlight */
+    highlight-low: #2a283e;
+    highlight-med: #44415a;
+    highlight-high: #56526e;
+    background-color: transparent;
+    text-color: @text;
+    margin: 0;
+    padding: 0;
+    spacing: 0;
+}
+window {
+    location: north;
+    y-offset: calc(40% - 176px);
+    border-radius: 12px;
+    border: 2px;
+    border-color: @highlight-high;
+    background-color: @highlight-low;
+}
+
+mainbox {
+    padding: 12px;
+}
+
+inputbar {
+    border-radius: 12px;
+    padding: 24px 8px;
+    spacing: 8px;
+    children: [ prompt, entry ];
+}
+
+message {
+    margin: 12px 0 0;
+    border-radius: 16px;
+    border-color: @overlay;
+    background-color: @overlay;
+}
+
+listview {
+    margin: 12px 0 0;
+    lines: 3;
+    fixed-height: false;
+    background-color: transparent;
+}
+
+element {
+    padding: 24px 16px;
+    spacing: 12px;
+    border-radius: 12px;
+}
+
+element-text {
+    text-color: @muted;
+    vertical-align: 0.5;
+}
+
+element-text selected {
+    text-color: @gold;
+}
+
+element selected {
+    background-color: @darker;
+    border: 1px;
+    border-color: @foam;
+}
+
+element normal active, element alternate active {
+    text-color: @iris;
+}
+
+element-icon {
+    enabled: false;
+    /* size: 2em; */
+    /* vertical-align: 0.5; */
+}

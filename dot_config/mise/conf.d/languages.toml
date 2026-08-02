@@ -1,0 +1,8 @@
+[tools]
+go = "latest"
+java = "21"
+php = "8.5"
+python = "3.13.5"
+ruby = "4.0.1"
+rust = "stable"
+zig = "0.16.0"

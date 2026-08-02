@@ -1,0 +1,17 @@
+{{ if eq .chezmoi.hostname "desk" }}
+* {
+    font: "DM Sans 24";
+}
+window {
+    width: 500;
+}
+
+{{ else if eq .chezmoi.hostname "s145" }}
+* {
+    font: "DM Sans 15";
+}
+window {
+    width: 380;
+}
+
+{{ end }}

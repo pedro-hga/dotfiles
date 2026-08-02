@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+choice=$(
+  printf "No\nMaybe\nYes, it's necessary" |
+    shuf |
+    rofi -dmenu -lines 3 -p "Is this necessary?"
+)
+
+case "$choice" in
+"Yes, it's necessary")
+  ;;
+"Maybe")
+  maybe=$(
+    printf "Go back\nYes, continue" |
+      shuf |
+      rofi -dmenu -lines 2 -p "Think again."
+  )
+
+  [ "$maybe" = "Yes, continue" ] || exit 0
+  ;;
+*)
+  exit 0
+  ;;
+esac
+
+choice2=$(
+  printf "No, go back\nWait a minute\nYes, open it" |
+    shuf |
+    rofi -dmenu -lines 3 -p "Are you sure?"
+)
+
+if [ "$choice2" = "Yes, open it" ]; then
+  exec firefox
+fi

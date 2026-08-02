@@ -1,0 +1,11 @@
+[Unit]
+Description=Albert Launcher
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/albert
+Restart=on-failure
+TimeoutStopSec=5s
+
+[Install]
+WantedBy=default.target

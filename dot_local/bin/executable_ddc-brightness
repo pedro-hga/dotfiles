@@ -1,0 +1,20 @@
+#!/bin/bash
+# Usage: ddc-brightness set 10%+   |   ddc-brightness get
+DEV=$(brightnessctl -l 2>/dev/null | awk -F"'" '/Device .ddcci/ {print $2}' | head -n1)
+
+case "$1" in
+set)
+  if [ -n "$DEV" ]; then
+    brightnessctl -d "$DEV" set "$2"
+  else
+    brightnessctl set "$2"
+  fi
+  ;;
+get)
+  if [ -n "$DEV" ]; then
+    brightnessctl -d "$DEV" -m | awk -F, '{print $4}'
+  else
+    brightnessctl -m | awk -F, '{print $4}'
+  fi
+  ;;
+esac
