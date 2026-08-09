@@ -9,7 +9,7 @@ desk)
   text_scaling=1.5
   ;;
 s145)
-  cursor_size=24
+  cursor_size=36
   text_scaling=1.0
   ;;
 *)
