@@ -6,7 +6,7 @@ mouse_warping none
 set $mod Mod4
 floating_modifier $mod
 
-font pango:Iosevka Nerd Font 14
+font pango:Lilex Nerd Font 14
 
 new_window pixel 4
 new_float pixel 0
