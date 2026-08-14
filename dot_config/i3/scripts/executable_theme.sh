@@ -10,7 +10,7 @@ desk)
   ;;
 s145)
   cursor_size=36
-  text_scaling=1.0
+  text_scaling=1.15
   ;;
 *)
   cursor_size=32
@@ -38,5 +38,6 @@ gsettings set org.gnome.desktop.interface color-scheme "$scheme"
 gsettings set org.gnome.desktop.interface text-scaling-factor "$text_scaling"
 
 sed -i "s/^Xcursor.theme:.*/Xcursor.theme: $cursor/" "$HOME/.Xresources"
-xrdb -merge "$HOME/.Xresources"
+# xrdb -merge "$HOME/.Xresources"
+i3-msg reload
 notify-send "$mode mode"
