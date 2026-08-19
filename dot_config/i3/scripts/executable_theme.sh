@@ -6,7 +6,7 @@ host=$(hostname)
 case "$host" in
 desk)
   cursor_size=48
-  text_scaling=1.5
+  text_scaling=1.75
   ;;
 s145)
   cursor_size=36
@@ -39,5 +39,5 @@ gsettings set org.gnome.desktop.interface text-scaling-factor "$text_scaling"
 
 sed -i "s/^Xcursor.theme:.*/Xcursor.theme: $cursor/" "$HOME/.Xresources"
 # xrdb -merge "$HOME/.Xresources"
-i3-msg reload
+i3-msg restart
 notify-send "$mode mode"
