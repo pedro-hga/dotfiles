@@ -6,7 +6,7 @@ host=$(hostname)
 case "$host" in
 desk)
   cursor_size=48
-  text_scaling=1.75
+  text_scaling=1.5
   ;;
 s145)
   cursor_size=36
