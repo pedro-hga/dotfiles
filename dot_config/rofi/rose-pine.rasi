@@ -10,13 +10,14 @@
     muted: #6e6a86;
     subtle: #908caa;
     /* Text */
-    text: #e0def4;
-    love: #eb6f92;
-    gold: #f6c177;
-    rose: #ea9a97;
-    pine: #3e8fb0;
-    foam: #9ccfd8;
-    iris: #c4a7e7;
+    text:   #e0def4;
+    love:   #eb6f92;
+    gold:   #f6c177;
+    orange: #F4A657;
+    rose:   #ea9a97;
+    pine:   #3e8fb0;
+    foam:   #9ccfd8;
+    iris:   #c4a7e7;
     /* Highlight */
     highlight-low: #2a283e;
     highlight-med: #44415a;
@@ -73,13 +74,13 @@ element-text {
 }
 
 element-text selected {
-    text-color: @gold;
+    text-color: @orange;
 }
 
 element selected {
     background-color: @darker;
     border: 1px;
-    border-color: @foam;
+    border-color: @orange;
 }
 
 element normal active, element alternate active {

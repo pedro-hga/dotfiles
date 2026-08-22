@@ -12,6 +12,10 @@ s145)
   cursor_size=36
   text_scaling=1.15
   ;;
+t440p)
+  cursor_size=42
+  text_scaling=1
+  ;;
 *)
   cursor_size=32
   text_scaling=1.0

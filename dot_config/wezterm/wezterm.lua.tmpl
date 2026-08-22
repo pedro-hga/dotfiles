@@ -9,6 +9,8 @@ local config = wezterm.config_builder()
 {{ include "dot_config/wezterm/modules/machines/desk.lua" }}
 {{- else if eq .chezmoi.hostname "s145" }}
 {{ include "dot_config/wezterm/modules/machines/s145.lua" }}
+{{- else if eq .chezmoi.hostname "t440p" }}
+{{ include "dot_config/wezterm/modules/machines/t440p.lua" }}
 {{- else }}
 {{ include "dot_config/wezterm/modules/machines/default.lua" }}
 {{- end }}
