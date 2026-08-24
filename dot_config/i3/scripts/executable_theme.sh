@@ -14,7 +14,7 @@ s145)
   ;;
 t440p)
   cursor_size=42
-  text_scaling=1
+  text_scaling=1.15
   ;;
 *)
   cursor_size=32
