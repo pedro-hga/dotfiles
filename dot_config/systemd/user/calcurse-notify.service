@@ -1,0 +1,6 @@
+[Unit]
+Description=Calcurse notification scheduler
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/calcurse-notify

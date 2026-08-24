@@ -1,0 +1,10 @@
+[Unit]
+Description=Run Calcurse notification scheduler periodically
+
+[Timer]
+OnBootSec=30s
+OnUnitInactiveSec=30s
+Persistent=true
+
+[Install]
+WantedBy=timers.target

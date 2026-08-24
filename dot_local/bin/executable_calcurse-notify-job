@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+set -u
+
+if [[ $# -ne 3 ]]; then
+  printf 'usage: %s <delay> <message> <pid-file>\n' "$0" >&2
+  exit 2
+fi
+
+delay="$1"
+message="$2"
+pid_file="$3"
+
+cleanup() {
+  rm -f "$pid_file"
+}
+
+trap cleanup EXIT
+
+sleep "$delay"
+notify-send 'Calcurse' "$message"

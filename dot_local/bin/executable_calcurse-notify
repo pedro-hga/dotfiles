@@ -1,0 +1,99 @@
+#!/usr/bin/env bash
+
+set -u
+
+STATE_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/calcurse-notify"
+CURRENT="$STATE_DIR/current"
+PREVIOUS="$STATE_DIR/previous"
+PID_DIR="$STATE_DIR/pids"
+WORKER="$HOME/.local/bin/calcurse-notify-job"
+
+mkdir -p "$PID_DIR"
+
+get_appointments() {
+  calcurse -Q \
+    --from today \
+    --to today \
+    --filter-type apt,recur-apt \
+    --format-apt '%(hash)\t%(start:epoch)\t%(message)\n' \
+    --format-recur-apt '%(hash)\t%(start:epoch)\t%(message)\n' |
+    awk -F '\t' 'NF >= 3 && $1 ~ /^[0-9a-f]{40}$/'
+}
+
+schedule_notification() {
+  local hash="$1"
+  local timestamp="$2"
+  local message="$3"
+
+  local now
+  local delay
+  local pid_file
+
+  now=$(date +%s)
+  delay=$((timestamp - 900 - now))
+
+  pid_file="$PID_DIR/$hash.pid"
+
+  if ((delay <= 0)); then
+    return
+  fi
+
+  if [[ -f "$pid_file" ]]; then
+    local pid
+    pid=$(cat "$pid_file")
+
+    if kill -0 "$pid" 2>/dev/null; then
+      return
+    fi
+
+    rm -f "$pid_file"
+  fi
+
+  "$WORKER" "$delay" "$message" "$pid_file" &
+  echo $! >"$pid_file"
+}
+
+cancel_notification() {
+  local hash="$1"
+  local pid_file="$PID_DIR/$hash.pid"
+
+  if [[ -f "$pid_file" ]]; then
+    local pid
+    pid=$(cat "$pid_file")
+
+    kill "$pid" 2>/dev/null || true
+    rm -f "$pid_file"
+  fi
+}
+
+declare -A current
+
+while IFS=$'\t' read -r hash timestamp message; do
+  [[ -z "$hash" ]] && continue
+
+  current["$hash"]=$timestamp$'\t'"$message"
+done < <(get_appointments)
+
+: >"$CURRENT"
+
+for hash in "${!current[@]}"; do
+  printf '%s\t%s\n' "$hash" "${current[$hash]}" >>"$CURRENT"
+done
+
+if [[ -f "$PREVIOUS" ]]; then
+  while IFS=$'\t' read -r hash timestamp message; do
+    [[ -z "$hash" ]] && continue
+
+    if [[ -z "${current[$hash]+x}" ]]; then
+      cancel_notification "$hash"
+    fi
+  done <"$PREVIOUS"
+fi
+
+while IFS=$'\t' read -r hash timestamp message; do
+  [[ -z "$hash" ]] && continue
+
+  schedule_notification "$hash" "$timestamp" "$message"
+done <"$CURRENT"
+
+mv "$CURRENT" "$PREVIOUS"
