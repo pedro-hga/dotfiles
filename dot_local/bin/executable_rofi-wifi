@@ -1,0 +1,213 @@
+#!/usr/bin/env bash
+
+set -u
+
+ROFI="rofi"
+NMCLI="nmcli"
+
+rofi_wifi() {
+  "$ROFI" \
+    -dmenu \
+    -i \
+    -matching fuzzy \
+    -no-custom \
+    -p "Wi-Fi" \
+    -theme-str '
+  window {
+    width: 700px;
+  }
+
+  mainbox {
+    padding: 12px;
+  }
+
+  inputbar {
+    padding: 12px 8px;
+  }
+
+  listview {
+    lines: 10;
+    fixed-height: true;
+    spacing: 4px;
+  }
+
+  element {
+    padding: 10px 12px;
+    spacing: 8px;
+  }
+
+  element-text {
+    markup: true;
+    vertical-align: 0.5;
+  }
+'
+}
+
+notify() {
+  notify-send "Wi-Fi" "$1" 2>/dev/null || true
+}
+
+wifi_enabled() {
+  [[ "$("$NMCLI" radio wifi 2>/dev/null)" == "enabled" ]]
+}
+
+get_networks() {
+  "$NMCLI" -t \
+    -f IN-USE,SSID,SIGNAL,SECURITY \
+    dev wifi list \
+    --rescan yes 2>/dev/null |
+    awk -F: '
+      {
+        inuse=$1
+        ssid=$2
+        signal=$3
+        security=$4
+
+        if (ssid == "")
+          ssid="(hidden)"
+
+        if (!(ssid in best) || signal > best[ssid]) {
+          best[ssid]=signal
+          data[ssid]=inuse ":" ssid ":" signal ":" security
+        }
+      }
+
+      END {
+        for (ssid in data)
+          print data[ssid]
+      }
+    ' |
+    sort -t: -k3,3nr
+}
+
+format_networks() {
+  while IFS=: read -r inuse ssid signal security; do
+    if [[ "$inuse" == "*" ]]; then
+      marker="●"
+    else
+      marker=" "
+    fi
+
+    printf '<span font_weight="bold" size="medium">%s</span>    %-30s    <b>%3s%%</b>\n' \
+      "$marker" "$ssid" "$signal"
+  done
+}
+
+connect_network() {
+  local raw="$1"
+
+  IFS=: read -r inuse ssid signal security <<<"$raw"
+
+  if [[ "$inuse" == "*" ]]; then
+    notify "Already connected to $ssid"
+    return
+  fi
+
+  # Existing saved connection.
+  if "$NMCLI" -t -f NAME connection show 2>/dev/null |
+    grep -Fxq "$ssid"; then
+
+    if "$NMCLI" connection up id "$ssid" >/dev/null 2>&1; then
+      notify "Connected to $ssid"
+      return
+    fi
+  fi
+
+  # Open network.
+  if [[ -z "$security" ]]; then
+    if "$NMCLI" device wifi connect "$ssid" >/dev/null 2>&1; then
+      notify "Connected to $ssid"
+    else
+      notify "Failed to connect to $ssid"
+    fi
+    return
+  fi
+
+  # Password-protected network.
+  password="$(
+    "$ROFI" \
+      -dmenu \
+      -password \
+      -p "Password" \
+      -theme-str '
+        window {
+          width: 500px;
+        }
+
+        mainbox {
+          padding: 12px;
+        }
+
+        inputbar {
+          padding: 12px 8px;
+        }
+      '
+  )"
+
+  [[ -n "$password" ]] || return
+
+  if "$NMCLI" device wifi connect "$ssid" password "$password" >/dev/null 2>&1; then
+    notify "Connected to $ssid"
+  else
+    notify "Failed to connect to $ssid"
+  fi
+}
+
+main() {
+  command -v "$ROFI" >/dev/null || exit 1
+  command -v "$NMCLI" >/dev/null || exit 1
+
+  if ! wifi_enabled; then
+    choice="$(
+      printf '%s\n' "Enable Wi-Fi" |
+        rofi_wifi
+    )"
+
+    if [[ "$choice" == "Enable Wi-Fi" ]]; then
+      "$NMCLI" radio wifi on
+    fi
+
+    exit 0
+  fi
+
+  # Refresh the NetworkManager cache without blocking Rofi.
+  "$NMCLI" device wifi rescan >/dev/null 2>&1 &
+
+  networks="$(get_networks)"
+
+  [[ -n "$networks" ]] || {
+    notify "No Wi-Fi networks found"
+    exit 1
+  }
+
+  display="$(
+    printf '%s\n' "$networks" |
+      format_networks
+  )"
+
+  selected="$(
+    printf '%s\n' "$display" |
+      rofi_wifi
+  )"
+
+  [[ -n "$selected" ]] || exit 0
+
+  ssid="$(
+    printf '%s\n' "$selected" |
+      awk -F'\t' '{print $2}' |
+      sed 's/[[:space:]]*$//'
+  )"
+
+  [[ -n "$ssid" ]] || exit 0
+
+  selected_raw="$(
+    printf '%s\n' "$networks" |
+      awk -F: -v ssid="$ssid" '$2 == ssid { print; exit }'
+  )"
+
+  [[ -n "$selected_raw" ]] || exit 0
+
+  connect_network "$selected_raw"
+}
+
+main
