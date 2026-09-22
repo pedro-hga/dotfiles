@@ -1,6 +1,6 @@
 [global]
     follow = mouse
-    origin = top-center
+    origin = bottom-right
     geometry = "0x0+0+20"
     indicate_hidden = yes
     shrink = no
