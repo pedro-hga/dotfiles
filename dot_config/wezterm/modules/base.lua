@@ -1,6 +1,7 @@
 -- modules/base.lua
 
-config.color_scheme = "Rosé Pine Moon (Gogh)"
+-- config.color_scheme = "Rosé Pine Moon (Gogh)"
+config.color_scheme = "nordfox"
 config.font = wezterm.font("Lilex Nerd Font")
 config.window_background_opacity = 1.0
 config.bold_brightens_ansi_colors = true
